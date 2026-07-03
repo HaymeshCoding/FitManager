@@ -1,0 +1,458 @@
+/* Modern Y2K Aesthetic Styling */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background: #f4f5f8;
+    background-image: radial-gradient(#d7d8dc 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: #1a1a24;
+    padding: 20px;
+    position: relative;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding: 10px 0;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #4361ee, #b5179e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+header p {
+    color: #6c757d;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+/* --- Menu Bar / Sidebar Styling --- */
+.menu-toggle-btn {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    background: #fff;
+    color: #1a1a24;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 300px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    color: #1a1a24;
+    border-right: 1px solid #e2e8f0;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05);
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.menu-fits-list {
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 5px;
+}
+
+.menu-fit-item {
+    padding: 12px 15px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #334155;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.menu-fit-item:hover {
+    background: #4361ee;
+    color: #fff;
+    border-color: #4361ee;
+    transform: translateX(4px);
+}
+
+/* --- Layout Elements --- */
+section {
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+}
+
+section h2 {
+    font-size: 1.4rem;
+    color: #1e293b;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.upload-controls, .naming-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#outfitNameInput {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #1e293b;
+    background: #f8fafc;
+    outline: none;
+    transition: border-color 0.2s;
+}
+#outfitNameInput:focus {
+    border-color: #4361ee;
+    background: #fff;
+}
+
+button {
+    background: #1e293b;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: #4361ee;
+    transform: translateY(-2px);
+}
+
+input[type="file"], select {
+    padding: 10px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.hint {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    min-height: 100px;
+}
+
+.outfit-canvas {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 10px;
+    min-height: 180px;
+    padding: 20px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    background: #f8fafc;
+}
+
+/* Wardrobe Item Specifics */
+.wardrobe-item-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.clothing-item {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.clothing-item:hover {
+    transform: scale(1.05);
+    border-color: #4361ee;
+}
+
+.outfit-canvas .clothing-item {
+    width: 75px;
+    height: 75px;
+    border-radius: 8px;
+}
+
+.btn-delete-wardrobe {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(239, 68, 68, 0.4);
+}
+
+.wardrobe-item-wrapper:hover .btn-delete-wardrobe {
+    opacity: 1;
+}
+
+/* --- Saved Outfits Display (Gallery View) --- */
+.saved-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.saved-outfit-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.saved-outfit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.06);
+    border-color: #cbd5e1;
+}
+
+.saved-outfit-card h4 {
+    margin-bottom: 15px;
+    color: #1e293b;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.saved-outfit-thumbnails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    width: 140px;
+    height: 140px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f1f5f9;
+}
+
+.saved-outfit-thumbnails img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Modal Overlay Design --- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.open {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 24px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    color: #0f172a;
+    font-size: 1.8rem;
+    font-weight: 800;
+    flex: 1;
+}
+
+.modal-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-edit-fit {
+    background: #e0e7ff;
+    color: #4361ee;
+    font-size: 0.9rem;
+    border: 1px solid #c7d2fe;
+}
+.btn-edit-fit:hover {
+    background: #4361ee;
+    color: #fff;
+    border-color: #4361ee;
+}
+
+.btn-delete-fit {
+    background: #f1f5f9;
+    color: #ef4444;
+    font-size: 0.9rem;
+    border: 1px solid #e2e8f0;
+}
+.btn-delete-fit:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #dc2626;
+}
+
+.close-btn {
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    transition: color 0.2s;
+    line-height: 1;
+    padding: 0;
+}
+.close-btn:hover { color: #0f172a; transform: none; }
+.sidebar .close-btn { color: #1e293b; }
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.modal-item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.modal-item-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.modal-actions button {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+}
+
+.btn-remove { background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; }
+.btn-remove:hover { background: #e2e8f0; color: #334155; }
+.btn-replace { background: #4361ee; color: white; }
+.btn-replace:hover { background: #3a56d4; }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitManager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sliding Sidebar Menu Bar -->
+    <div id="sideMenu" class="sidebar">
+        <div class="sidebar-header">
+            <h2>My Saved Fits</h2>
+            <button id="closeMenuBtn" class="close-btn">&times;</button>
+        </div>
+        <div id="menuFitsList" class="menu-fits-list">
+            <!-- Named fits will dynamically appear here -->
+        </div>
+    </div>
+
+    <header>
+        <button id="openMenuBtn" class="menu-toggle-btn">Menu</button>
+        <h1>FitManager</h1>
+        <p>Upload your clothes and build your fits.</p>
+    </header>
+
+    <main>
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <h2>Add to Wardrobe</h2>
+            <div class="upload-controls">
+                <input type="file" id="imageUpload" accept="image/*" multiple>
+                <select id="categorySelect">
+                    <option value="top">Top</option>
+                    <option value="bottom">Bottom</option>
+                    <option value="shoes">Shoes</option>
+                    <option value="accessory">Accessory</option>
+                </select>
+                <button id="uploadBtn">Upload Item</button>
+            </div>
+        </section>
+
+        <div class="workspace">
+            <!-- Wardrobe Display -->
+            <section class="wardrobe-section">
+                <h2>Your Wardrobe</h2>
+                <p class="hint">Click an item to add it to the outfit. Hover and click 'x' to delete.</p>
+                <div id="wardrobeGrid" class="grid-container"></div>
+            </section>
+
+            <!-- Outfit Builder -->
+            <section class="builder-section">
+                <h2>Current Outfit</h2>
+                <div class="naming-container">
+                    <input type="text" id="outfitNameInput" placeholder="Name this outfit (e.g., Casual Friday)...">
+                </div>
+                <p class="hint">Click an item here to remove it from the canvas.</p>
+                <div id="currentOutfit" class="outfit-canvas"></div>
+                <button id="saveOutfitBtn">Save Outfit</button>
+            </section>
+        </div>
+
+        <!-- Saved Outfits Gallery -->
+        <section class="saved-outfits-section">
+            <h2>Saved Fits Gallery</h2>
+            <p class="hint">Click an outfit to enlarge it, edit, or delete.</p>
+            <div id="savedOutfitsGrid" class="saved-grid-container"></div>
+        </section>
+    </main>
+
+    <!-- Enlarged Outfit Modal View -->
+    <div id="outfitModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalOutfitName">Fit Name</h2>
+                <div class="modal-header-actions">
+                    <button id="editFitBtn" class="btn-edit-fit">Edit on Canvas</button>
+                    <button id="deleteEntireFitBtn" class="btn-delete-fit">Delete Fit</button>
+                    <span id="closeModalBtn" class="close-btn">&times;</span>
+                </div>
+            </div>
+            <div id="modalItemsGrid" class="modal-grid"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
